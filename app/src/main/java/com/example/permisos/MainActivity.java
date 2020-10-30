@@ -12,9 +12,12 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
@@ -77,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Log.i("permiso_nombre", Arrays.deepToString(permissions));
+        Log.i("permiso_sresults",Arrays.toString(grantResults));
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode==REQUEST_CODE_ASK_PERMISSIONS){
