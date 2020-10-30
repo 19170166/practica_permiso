@@ -84,12 +84,19 @@ public class MainActivity extends AppCompatActivity {
         Log.i("permiso_sresults",Arrays.toString(grantResults));
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
+        int resultado=-1;
         if (requestCode==REQUEST_CODE_ASK_PERMISSIONS){
             if (grantResults.length>=1){
                 for (int i=0;i<grantResults.length;i++){
-                    if (grantResults[i]==PackageManager.PERMISSION_GRANTED) {
-                        //APLICACION
+                    /*if (grantResults[i]==PackageManager.PERMISSION_GRANTED) {
+                    }*/
+                    resultado=grantResults[i];
+                    if (resultado==-1){
+                        i=grantResults.length+1;
                     }
+                }
+                if (resultado==0){
+                    llamar();
                 }
             }
         }
