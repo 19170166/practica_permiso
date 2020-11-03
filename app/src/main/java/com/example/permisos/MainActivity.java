@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.i("permiso_nombre", Arrays.deepToString(permissions));
         Log.i("permiso_sresults",Arrays.toString(grantResults));
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
+        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.i("permiso_",String.valueOf(requestCode));
         int resultado=-1;
         if (requestCode==REQUEST_CODE_ASK_PERMISSIONS){
             if (grantResults.length>=1){
@@ -92,14 +92,20 @@ public class MainActivity extends AppCompatActivity {
                     }*/
                     resultado=grantResults[i];
                     if (resultado==-1){
+                        Log.i("resultado",String.valueOf(resultado));
                         i=grantResults.length+1;
                     }
                 }
+                Log.i("resultado_fuera",String.valueOf(resultado));
                 if (resultado==0){
                     llamar();
                 }
             }
+            Log.i("resultado_fuera 2",String.valueOf(resultado));
+
         }
+        Log.i("resultado_fuera 3",String.valueOf(resultado));
+
     }
 
     public void telefono(){
